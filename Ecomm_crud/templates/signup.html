@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body id="bg" style="background-image: url('{% static 'image/store.jpg' %}')";>
+<div class="container">
+<h3><b>Sign In</b></h3>
+<form action="" method="POST">
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+        <p class="er">{{error}}</p>
+        {% endfor %}
+    {% endif %}
+    <h1></h1>
+    {% for fm in form %}
+        {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} <br><br>
+    {% endfor %}
+    <input type="submit" value="Signup"> <br><br><br>
+
+</form>
+<div>
+    <h6><i>If already have account:</i> </h6>
+<a href="{% url 'login' %}"><h4><b>LOGIN</b></h4></a>
+</div>
+
+{% if messages %}
+    {% for message in messages %}
+        <small {% if message.tags %} class="{{message.tags}}"  {% endif %}>{{message}}</small>
+    {% endfor %}
+{% endif %}
+    </div>
+</body>
+{% endblock %}

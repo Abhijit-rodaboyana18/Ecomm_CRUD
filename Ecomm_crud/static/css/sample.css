@@ -1,0 +1,57 @@
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+    font-size: 50px;
+    margin: 5px;
+    padding: 15px;
+}
+
+.navbar-head
+{
+  background-color: black;
+  color:black;
+  font-size: 50px;
+  padding: 0px;
+  height: 95px;
+}
+
+.navbar-nav
+{
+
+  color:orangered;
+  font-size: 30px;
+  margin: 5px;
+
+}
+
+body {
+  background-color: lightgrey;
+
+}
+#bg{
+    background-size: 1800px 900px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+}
+
+.container {
+  width: 30%;
+  border-radius: 85px;
+  background-color: #f2f2f2;
+  padding: 55px;
+}
+
+.container2 {
+  width: 30%;
+  border-radius: 85px;
+  background-color: #f2f2f2;
+  padding: 55px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body id="bg" style="background-image: url('{% static 'image/store2.jpg' %}')";>
+<div class="container">
+<form action="" method="POST" novalidate >
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+        <p class="er">{{error}}</p>
+        {% endfor %}
+    {% endif %}
+
+    {% for fm in form %}
+        {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} <br><br>
+    {% endfor %}
+        <input type="submit" value="Login"><br><br>
+
+</form>
+    <h5><i>Don't have account..?</i></h5>
+    <a href="{% url 'signup' %}"><h4><b>Signup</b></h4></a>
+
+</div>
+</body>
+{% endblock %}

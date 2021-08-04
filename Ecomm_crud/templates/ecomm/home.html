@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+</ul>
+<div class="col-md-3" >
+    <form action="" method="POST" >
+        {% csrf_token %}
+        <table>
+        {{form}}
+        </table>
+    <button type=submit> Submit </button>
+
+    </form>
+</div>
+<div>
+    <table class="table" style="color: blue">
+    {% if details %}
+   <tr style="color: chocolate"> <th>Name</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Product</th>
+       <th>Quantity</th> </tr>
+        {% for i in details %}
+        <tr>
+            <td> {{i.name}}</td>
+            <td>{{i.phone}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.product}}</td>
+            <td>{{i.quantity}}</td>
+
+            <td><a class="btn btn-success btm-sm text-white" href='update/{{ i.pk }}'>Edit</a></td>
+            <td><a class="btn btn-danger" href="delete/{{ i.pk }}">Delete</a></td>
+
+
+        {%endfor%} <br><br>
+    {% else %}
+        <h2> No Records</h2>
+    {%endif%}
+        </table>
+</div>
+<br><br><br>
+
+{% endblock %}
